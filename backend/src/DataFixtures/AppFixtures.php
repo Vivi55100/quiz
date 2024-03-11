@@ -13,6 +13,9 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+
+        // Topics
+
         $math = new Topics();
         $math->setValue("math");
         $manager->persist($math);
@@ -21,11 +24,13 @@ class AppFixtures extends Fixture
         $chemistry->setValue("chimie");
         $manager->persist($chemistry);
 
+        // First question
+
         $firstQuestion = new Questions();
         $firstQuestion
             ->setTopic($chemistry)
             ->setValue("Ou etait le gondor lorsque nos ennemis nous ont encercler ?")
-            ->setCorrection("Au gondor");
+            ->setCorrection("Au Gondor");
         $manager->persist($firstQuestion);
 
         $answerOneFirstQuestion = new Answers();
@@ -55,6 +60,8 @@ class AppFixtures extends Fixture
             ->setValue("OSEF Benoit St Denis s'est fait éteindre, je suis dégoûté, mais l'autre était trop puissant")
             ->setIsCorrect(false);
         $manager->persist($answerFourthFirstQuestion);
+
+        // Second question
 
         $secondQuestion = new Questions();
         $secondQuestion
